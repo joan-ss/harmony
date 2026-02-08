@@ -1,0 +1,115 @@
+.loginContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-bg);
+    padding: 2rem;
+}
+
+.loginCard {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    padding: 3rem 2.5rem;
+    border-radius: 32px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--glass-border);
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #124b8d;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.04em;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #64748b;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a2a4b;
+    padding-left: 0.5rem;
+}
+
+.formGroup input {
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    background: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.formGroup input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+}
+
+.submitBtn {
+    background: linear-gradient(135deg, #4a90e2 0%, #124b8d 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    box-shadow: 0 8px 20px rgba(18, 75, 141, 0.2);
+    transition: all 0.2s;
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(18, 75, 141, 0.3);
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.message {
+    font-size: 0.9rem;
+    color: #e53e3e;
+    background: #fff5f5;
+    padding: 0.75rem;
+    border-radius: 12px;
+    border: 1px solid #feb2b2;
+}
+
+.toggleText {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.toggleBtn {
+    color: #4a90e2;
+    font-weight: 700;
+    margin-left: 0.5rem;
+    text-decoration: underline;
+}

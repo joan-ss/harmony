@@ -1,0 +1,99 @@
+:root {
+  /* Harmony Organic Palette: Calm, Organic, Growth */
+  --primary: #5F8575;
+  /* Eucalyptus */
+  --primary-dark: #4a6b5d;
+  --primary-light: #8fab9f;
+
+  --secondary: #9DBEBB;
+  /* Sage/Mist */
+  --secondary-dark: #7a9a97;
+
+  --accent: #E2725B;
+  /* Terracotta */
+  --accent-light: #f0a394;
+  --accent-dark: #c65e49;
+
+  --background: #FDF9F3;
+  /* Cream / Warm Off-White */
+  --surface: #FFFFFF;
+  --surface-hover: #FAF5ED;
+
+  --text: #3C474D;
+  /* Soft Charcoal, less harsh than pure black */
+  --text-light: #7A868C;
+  --text-inverted: #FFFFFF;
+
+  --border: #DDE2E0;
+  /* Sage-tinted border */
+
+  --danger: #D9534F;
+  /* Softened Red */
+  --success: #679267;
+  /* Organic Green */
+
+  --shadow-sm: 0 2px 4px rgba(95, 133, 117, 0.05);
+  --shadow-md: 0 4px 12px rgba(95, 133, 117, 0.08);
+  --shadow-lg: 0 12px 24px rgba(95, 133, 117, 0.12);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-full: 9999px;
+
+  --max-width: 1200px;
+
+  /* Organic Design Tokens */
+  --app-bg: #FDF9F3;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(95, 133, 117, 0.1);
+  --glass-blur: blur(8px);
+  --card-shadow: 0 10px 30px rgba(95, 133, 117, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1A202C;
+    --surface: #2D3748;
+    --surface-hover: #4A5568;
+
+    --text: #F7FAFC;
+    --text-light: #A0AEC0;
+
+    --border: #4A5568;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: var(--font-outfit), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}

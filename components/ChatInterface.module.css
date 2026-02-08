@@ -1,0 +1,373 @@
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background: var(--surface);
+    overflow: hidden;
+    position: relative;
+    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    min-width: 280px;
+    background: var(--primary);
+    /* Eucalyptus */
+    border-right: 1px solid var(--primary-dark);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebarTitle {
+    padding: 1rem;
+    background: var(--surface-hover);
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+}
+
+.channelList {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--primary);
+}
+
+.channelItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.channelItem:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.activeChannel {
+    background: var(--secondary);
+    /* Sage Active */
+    color: var(--text);
+}
+
+.channelAvatar {
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.channelName {
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+}
+
+/* Chat Area */
+.chatArea {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: var(--background);
+    /* Cream */
+}
+
+.chatHeader {
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60px;
+}
+
+.headerTitle {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.headerSubtitle {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.chatWindow {
+    flex: 1;
+    padding: 1rem 2%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--background);
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+    position: relative;
+}
+
+.message.me {
+    align-self: flex-end;
+}
+
+.message.other {
+    align-self: flex-start;
+}
+
+.bubble {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.me .bubble {
+    background: var(--secondary);
+    /* Sage bubble for me */
+    color: var(--text);
+    border-radius: 1rem 0.25rem 1rem 1rem;
+    border: 1px solid var(--secondary-dark);
+}
+
+.other .bubble {
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 0.25rem 1rem 1rem 1rem;
+    border: 1px solid var(--border);
+}
+
+.message.ai .bubble {
+    background: var(--surface-hover);
+    /* Soft organic tint */
+    border-left: 4px solid var(--primary);
+    color: var(--primary-dark);
+}
+
+.aiChannel {
+    border-left: 4px solid var(--primary);
+}
+
+.time {
+    font-size: 0.65rem;
+    color: var(--text-light);
+    /* Using theme variable instead of hardcoded alpha */
+    text-align: right;
+    margin-top: 0.1rem;
+    display: block;
+    float: right;
+    margin-left: 0.5rem;
+    position: relative;
+    top: 4px;
+}
+
+/* Input Area */
+.inputArea {
+    padding: 1rem;
+    background: var(--surface);
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    border-top: 1px solid var(--border);
+}
+
+.actions {
+    display: flex;
+    gap: 0.75rem;
+    color: var(--text-light);
+}
+
+.iconBtn {
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    border-radius: 50%;
+    color: var(--text-light);
+    transition: all 0.2s;
+}
+
+.iconBtn:hover {
+    color: var(--primary);
+    background: var(--surface-hover);
+}
+
+.input {
+    flex: 1;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--surface);
+    box-shadow: 0 0 0 4px rgba(95, 133, 117, 0.1);
+}
+
+.sendBtn {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-full);
+    transition: all 0.2s;
+}
+
+.sendBtn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Suggestion Modal */
+.suggestionModal {
+    position: absolute;
+    bottom: 80px;
+    left: 10%;
+    right: 10%;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: 9999;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.suggestionContent {
+    padding: 1.5rem;
+}
+
+.suggestionContent h4 {
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.preview {
+    background: var(--background);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--text);
+    border-left: 4px solid var(--primary);
+}
+
+.suggestionActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.acceptBtn {
+    flex: 2;
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+}
+
+.ignoreBtn {
+    flex: 1;
+    color: #54656f;
+    border: 1px solid #d1d7db;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.ignoreBtn:hover {
+    background: var(--surface-hover);
+    color: var(--danger);
+}
+
+.attachmentImage {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.attachmentFile {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        min-height: 600px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 120px;
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--primary-dark);
+        align-items: center;
+        padding-top: 0;
+        background: var(--primary);
+    }
+
+    .sidebarTitle {
+        display: none;
+    }
+
+    .channelList {
+        display: flex;
+        padding: 0.5rem;
+        gap: 0.5rem;
+        background: transparent;
+    }
+
+    .channelItem {
+        min-width: 80px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background: transparent;
+        border: none;
+        padding: 0.25rem;
+    }
+
+    .channelAvatar {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.25rem;
+        background: var(--surface);
+    }
+
+    .activeChannel .channelAvatar {
+        border: 2px solid var(--primary);
+    }
+
+    .chatArea {
+        height: 500px;
+    }
+}

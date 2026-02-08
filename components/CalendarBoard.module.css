@@ -1,0 +1,734 @@
+.board {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+    width: 100%;
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.monthNav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.monthTitle {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary);
+    /* Eucalyptus */
+    letter-spacing: -0.04em;
+}
+
+.navBtn {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-full);
+    transition: all 0.2s;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.navBtn:hover {
+    background: var(--surface-hover);
+    transform: scale(1.05);
+}
+
+.addEventMainBtn {
+    background: var(--accent);
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(226, 114, 91, 0.2);
+}
+
+.addEventMainBtn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(226, 114, 91, 0.3);
+}
+
+/* View Toggle */
+.viewToggle {
+    background: var(--surface-hover);
+    padding: 0.25rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    border: 1px solid var(--border);
+}
+
+.toggleBtn {
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-full);
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.85rem;
+}
+
+.toggleBtn.active {
+    background: var(--surface);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Weekly View Styles */
+.weekGrid {
+    grid-template-columns: repeat(7, 1fr) !important;
+    gap: 1.5rem !important;
+    overflow-x: auto;
+    padding-bottom: 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+}
+
+.weekGrid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.weekGrid::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.weekDayCell {
+    background: var(--background);
+    border-radius: 32px;
+    padding: 1.75rem;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    min-width: 180px;
+}
+
+.weekDayCell:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.weekDayCell.today {
+    background: var(--surface);
+    border: 2px solid var(--primary);
+    box-shadow: 0 8px 30px rgba(95, 133, 117, 0.15);
+}
+
+.weekDayHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--surface-hover);
+}
+
+.weekDayName {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.weekDayNumber {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1;
+    margin-top: 0.25rem;
+}
+
+.today .weekDayNumber {
+    color: var(--primary);
+}
+
+.weekEvents {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.emptyWeekText {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-style: italic;
+    text-align: center;
+    margin-top: 2rem;
+    opacity: 0.6;
+}
+
+.largeEvent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.largeEvent:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+}
+
+.largeEvent.custody {
+    background: rgba(157, 190, 187, 0.15);
+}
+
+.largeEvent.activity {
+    background: rgba(95, 133, 117, 0.1);
+}
+
+.largeEvent.expense {
+    background: rgba(226, 114, 91, 0.1);
+}
+
+.eventContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.largeEventTitle {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.largeEventTime {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.75rem;
+    padding: 0.5rem;
+}
+
+.dayName {
+    text-align: center;
+    font-weight: 800;
+    color: var(--text-light);
+    font-size: 0.75rem;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.day {
+    background: var(--background);
+    border-radius: 18px;
+    min-height: 120px;
+    padding: 0.75rem;
+    position: relative;
+    border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.day:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    background: var(--surface);
+    box-shadow: var(--shadow-md);
+    z-index: 2;
+}
+
+.today {
+    background: #f1f7f6;
+    /* Eucalyptus tint */
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
+}
+
+.today .dayNumber {
+    color: var(--primary);
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+.dayNumber {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.emptyDay {
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
+.events {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.event {
+    display: flex;
+    align-items: center;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    background: var(--surface-hover);
+    color: var(--text);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.event:hover {
+    transform: scale(1.02);
+}
+
+.eventDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Event Types - Organic Mapping */
+.event.custody {
+    background: #f5f8f7;
+    /* Sage tint */
+}
+
+.event.custody .eventDot {
+    background: var(--secondary);
+    /* Sage */
+}
+
+.eventTypeTag.custody {
+    background: var(--secondary);
+    color: var(--text);
+}
+
+.event.activity {
+    background: #f1f7f6;
+    /* Eucalyptus tint */
+}
+
+.event.activity .eventDot {
+    background: var(--primary);
+    /* Eucalyptus */
+}
+
+.eventTypeTag.activity {
+    background: var(--primary);
+    color: white;
+}
+
+.event.expense {
+    background: #fdf5f2;
+    /* Terracotta tint */
+}
+
+.event.expense .eventDot {
+    background: var(--accent);
+    /* Terracotta */
+}
+
+.eventTypeTag.expense {
+    background: var(--accent);
+    color: white;
+}
+
+/* Assignments */
+.event.dad {
+    border-left: 3px solid var(--primary);
+}
+
+.event.mom {
+    border-left: 3px solid var(--accent);
+}
+
+/* Modal Styles - Glassmorphism Organic */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+}
+
+.modalContent {
+    background: var(--surface);
+    padding: 2.5rem;
+    border-radius: 32px;
+    width: 95%;
+    max-width: 500px;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    border: 1px solid var(--border);
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.25rem;
+}
+
+.modalHeader h3 {
+    color: var(--primary);
+    margin: 0;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.closeBtn {
+    font-size: 1.75rem;
+    color: var(--text-light);
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.closeBtn:hover {
+    color: var(--accent);
+}
+
+.eventList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.noEvents {
+    text-align: center;
+    color: var(--text-light);
+    font-style: italic;
+    padding: 1rem;
+}
+
+.detailEventItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+    background: var(--background);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.eventInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.eventTypeTag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+}
+
+.eventDetailTitle {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.eventMeta {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-right: auto;
+    margin-left: 1rem;
+}
+
+.deleteBtn {
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    color: var(--text-light);
+}
+
+.deleteBtn:hover {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 1.5rem;
+}
+
+.createForm h4 {
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.inputGroup {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.select {
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--text);
+}
+
+.input {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--text);
+}
+
+.addBtn {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(95, 133, 117, 0.2);
+    transition: all 0.3s;
+}
+
+.addBtn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(95, 133, 117, 0.3);
+}
+
+.formRow {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.childSelector {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: var(--background);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+}
+
+.selectorLabel {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.checkboxGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.helperText {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+.childTags {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+}
+
+.childTag {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+}
+
+.creatorLabel {
+    display: block;
+    font-size: 0.7rem;
+}
+
+/* Recurring Event Styles */
+.headerButtons {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.recurringBtn {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(95, 133, 117, 0.2);
+}
+
+.recurringBtn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(95, 133, 117, 0.3);
+}
+
+.weekdaySelector {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: var(--background);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+}
+
+.weekdayGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.weekdayCheckbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.weekdayCheckbox:hover {
+    background: var(--surface-hover);
+    border-color: var(--primary);
+}
+
+.weekdayCheckbox input[type="checkbox"] {
+    margin: 0;
+}
+
+.weekdayCheckbox.checked {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.weekdayLabel {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.dateRangeRow {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.dateInputGroup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.dateInputGroup label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.timeInputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.timeLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.timeInput {
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--text);
+}
+
+.eventTime {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    font-weight: 600;
+}

@@ -1,0 +1,48 @@
+.container {
+    min-height: 100vh;
+    background: var(--app-bg);
+    padding-bottom: 80px;
+}
+
+.header {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.topNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.homeLink {
+    text-decoration: none;
+    color: #4a90e2;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #124b8d;
+}
+
+.pageTitle {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1a2a4b;
+    letter-spacing: -0.02em;
+}
+
+.main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}

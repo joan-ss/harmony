@@ -1,0 +1,52 @@
+.container {
+    height: calc(100vh - 70px);
+    background: var(--app-bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* ChatInterface has its own header now */
+}
+
+.title {
+    font-size: 2rem;
+    color: var(--text);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary-dark);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #C6F6D5;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

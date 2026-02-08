@@ -1,0 +1,50 @@
+.container {
+    min-height: 100vh;
+    background: var(--app-bg);
+    padding-bottom: 80px;
+}
+
+.header {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--primary);
+    /* Eucalyptus */
+    letter-spacing: -0.04em;
+}
+
+.addButton {
+    background: var(--accent);
+    /* Terracotta */
+    color: white;
+    padding: 0.8rem 1.75rem;
+    border-radius: var(--radius-lg);
+    font-weight: 800;
+    box-shadow: 0 4px 15px rgba(226, 114, 91, 0.2);
+    transition: all 0.2s;
+}
+
+.addButton:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(226, 114, 91, 0.3);
+}
+
+.main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
