@@ -11,7 +11,7 @@ interface SidebarMenuProps {
 }
 
 export default function SidebarMenu({ isOpen, onClose }: SidebarMenuProps) {
-    const { signOut, profile } = useAuth();
+    const { signOut, profile, isDemo } = useAuth();
     const [isAccountExpanded, setIsAccountExpanded] = useState(false);
     const [isFamilyExpanded, setIsFamilyExpanded] = useState(false);
     const [copied, setCopied] = useState(false);
@@ -114,6 +114,11 @@ export default function SidebarMenu({ isOpen, onClose }: SidebarMenuProps) {
                         <span className={styles.icon}><IconHelp size={20} /></span>
                         <span className={styles.label}>Ayuda</span>
                     </button>
+
+                    <div className={`${styles.statusIndicator} ${isDemo ? styles.statusDemo : styles.statusLive}`}>
+                        <div className={styles.statusDot}></div>
+                        <span>{isDemo ? 'Modo Demo (Local)' : 'Supabase Conectado'}</span>
+                    </div>
                 </div>
 
                 <div className={styles.footer}>

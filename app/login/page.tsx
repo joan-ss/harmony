@@ -10,7 +10,7 @@ export default function LoginPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [isSignUp, setIsSignUp] = useState(false);
     const [message, setMessage] = useState('');
-    const { signIn, signUp } = useAuth();
+    const { signIn, signUp, isDemo } = useAuth();
 
     const handleAuth = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -65,9 +65,14 @@ export default function LoginPage() {
                         {isLoading ? 'Cargando...' : (isSignUp ? 'Crear Cuenta' : 'Iniciar Sesión')}
                     </button>
 
-                    <p style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '1rem' }}>
-                        Nota: Si no has configurado Supabase, se usará el <b>Modo Demo</b> (los datos se guardan solo en este navegador).
-                    </p>
+                    <div style={{ marginTop: '1rem', padding: '0.5rem', borderRadius: '8px', background: isDemo ? '#fff4e5' : '#e6fffa', border: `1px solid ${isDemo ? '#ffd5a1' : '#b2f5ea'}`, fontSize: '0.8rem', color: isDemo ? '#b76e00' : '#008673', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: isDemo ? '#ff9800' : '#38b2ac', boxShadow: `0 0 5px ${isDemo ? '#ff9800' : '#38b2ac'}` }}></div>
+                        {isDemo ? (
+                            <span><b>Modo Demo:</b> Supabase no detectado. Los datos no se guardarán en la nube.</span>
+                        ) : (
+                            <span><b>Conectado:</b> Base de datos Supabase activa y lista.</span>
+                        )}
+                    </div>
                 </form>
 
                 <p className={styles.toggleText}>

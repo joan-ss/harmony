@@ -191,3 +191,42 @@
 .logoutBtn:hover {
     background: var(--accent-dark);
 }
+
+.statusIndicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.statusDemo {
+    background: #fff4e5;
+    color: #b76e00;
+    border: 1px solid #ffd5a1;
+}
+
+.statusLive {
+    background: #e6fffa;
+    color: #008673;
+    border: 1px solid #b2f5ea;
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.statusDemo .statusDot {
+    background: #ff9800;
+    box-shadow: 0 0 5px #ff9800;
+}
+
+.statusLive .statusDot {
+    background: #38b2ac;
+    box-shadow: 0 0 5px #38b2ac;
+}
